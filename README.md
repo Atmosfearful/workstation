@@ -23,6 +23,11 @@ bash bootstrap.sh
 
 The script adds third-party repositories and runs upstream installers; review it before running. Preview with `DRY_RUN=1 bash bootstrap.sh`. Package dependencies may install additional software.
 
-After setup, sign in to 1Password, connect Tailscale with `sudo tailscale up`, and configure SSH, Git identity and application preferences separately. Never commit credentials, private keys or recovery information. If `devcontainer` is not found, add `~/.devcontainers/bin` to your `PATH`.
+## Post-install
 
-Docker group membership grants effectively root-level privileges. Log out and back in, or run `newgrp docker`, to apply it. Lutris and Smile are available separately via Flatpak.
+- Sign in to 1Password and configure SSH and Git identity.
+- Connect to your tailnet: `sudo tailscale up`.
+- Log out and back in, or run `newgrp docker`, to apply Docker group membership. This group grants effectively root-level privileges.
+- If needed, add `~/.devcontainers/bin` to your `PATH` and restore application preferences. Lutris and Smile are available separately via Flatpak.
+
+Never commit credentials, private keys or recovery information.
