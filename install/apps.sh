@@ -49,6 +49,7 @@ install_base_packages() {
     micro
 }
 
+# https://support.1password.com/install-linux/ (Debian or Ubuntu, manual installation)
 install_1password() {
   if apt_installed 1password; then
     log "1Password already installed"
@@ -71,6 +72,7 @@ install_1password() {
 }
 
 install_brave() {
+  # https://brave.com/linux/ (one-command installation)
   if command_exists brave-browser || apt_installed brave-browser; then
     log "Brave already installed"
     return
@@ -81,6 +83,7 @@ install_brave() {
 }
 
 install_zed() {
+  # https://zed.dev/docs/linux (standard installation)
   if command_exists zed; then
     log "Zed already installed"
     return
@@ -90,6 +93,8 @@ install_zed() {
   run_shell 'curl -f https://zed.dev/install.sh | sh'
 }
 
+# https://docs.docker.com/engine/install/ubuntu/
+# https://docs.docker.com/engine/install/linux-postinstall/
 install_docker() {
   if apt_installed docker-ce && apt_installed docker-ce-cli && apt_installed containerd.io && \
     apt_installed docker-buildx-plugin && apt_installed docker-compose-plugin && command_exists docker; then
@@ -123,6 +128,7 @@ EOF'
   fi
 
   log "Configuring Docker user group"
+  echo "Warning: membership in the docker group grants root-level privileges."
 
   run sudo groupadd -f docker
   run sudo usermod -aG docker "$USER"
@@ -136,6 +142,7 @@ EOF'
 }
 
 install_devcontainer() {
+  # https://github.com/devcontainers/cli#install-script
   if command_exists devcontainer || [[ -x "$HOME/.devcontainers/bin/devcontainer" ]]; then
     log "Dev Container CLI already installed"
     return
@@ -146,6 +153,7 @@ install_devcontainer() {
 }
 
 install_discord() {
+  # https://support.discord.com/hc/en-us/articles/360034561191-Desktop-Installation-Guide
   if apt_installed discord; then
     log "Discord already installed"
     return
@@ -159,6 +167,7 @@ install_discord() {
 }
 
 install_steam() {
+  # https://repo.steampowered.com/steam/ (Ubuntu LTS launcher; separate APT instructions)
   if apt_installed steam-launcher || apt_installed steam; then
     log "Steam already installed"
     return
@@ -171,6 +180,7 @@ install_steam() {
   run rm -f /tmp/steam.deb
 }
 
+# https://www.spotify.com/us/download/linux/ (Debian / Ubuntu)
 install_spotify() {
   if apt_installed spotify-client; then
     log "Spotify already installed"
