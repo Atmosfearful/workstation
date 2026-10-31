@@ -46,8 +46,7 @@ install_base_packages() {
     curl \
     debsig-verify \
     gpg \
-    micro \
-    wget
+    micro
 }
 
 install_1password() {

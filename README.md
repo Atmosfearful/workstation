@@ -8,7 +8,19 @@ cd workstation
 bash bootstrap.sh
 ```
 
-Installs 1Password, Brave, Zed, Docker, Dev Container CLI, Discord, Steam, Spotify and base utilities. It adds third-party repositories and runs upstream installers; review the scripts before running them. Preview with `DRY_RUN=1 bash bootstrap.sh`.
+## Installed software
+
+- 1Password desktop app
+- Brave browser
+- Zed editor
+- Docker Engine and CLI, containerd, Docker Buildx and Compose plugins
+- Dev Container CLI
+- Discord
+- Steam
+- Spotify
+- Base packages: `ca-certificates`, `curl`, `debsig-verify`, `gpg`, and `micro`
+
+The script adds third-party repositories and runs upstream installers; review it before running. Preview with `DRY_RUN=1 bash bootstrap.sh`. Package dependencies may install additional software.
 
 After setup, sign in to 1Password and configure SSH, Git identity and application preferences separately. Never commit credentials, private keys or recovery information. If `devcontainer` is not found, add `~/.devcontainers/bin` to your `PATH`.
 
