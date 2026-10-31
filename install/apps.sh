@@ -95,7 +95,7 @@ install_brave() {
 
 install_zed() {
   # https://zed.dev/docs/linux (standard installation)
-  if command_exists zed; then
+  if command_exists zed || [[ -x "$HOME/.local/bin/zed" ]]; then
     log "Zed already installed"
   else
     log "Installing Zed"
