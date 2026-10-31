@@ -97,11 +97,15 @@ install_zed() {
   # https://zed.dev/docs/linux (standard installation)
   if command_exists zed; then
     log "Zed already installed"
-    return
+  else
+    log "Installing Zed"
+    run_shell 'curl -f https://zed.dev/install.sh | sh'
   fi
 
-  log "Installing Zed"
-  run_shell 'curl -f https://zed.dev/install.sh | sh'
+  if ! grep -Fqx '# workstation: add ~/.local/bin to PATH' "$HOME/.bashrc" 2>/dev/null; then
+    log "Adding ~/.local/bin to Bash PATH"
+    run_shell 'printf "\n%s\n%s\n" '\''# workstation: add ~/.local/bin to PATH'\'' '\''case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac'\'' >> "$HOME/.bashrc"'
+  fi
 }
 
 # https://docs.docker.com/engine/install/ubuntu/

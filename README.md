@@ -28,6 +28,7 @@ The script adds third-party repositories and runs upstream installers; review it
 - Sign in to 1Password and configure SSH and Git identity.
 - Connect to your tailnet: `sudo tailscale up`.
 - Log out and back in, or run `newgrp docker`, to apply Docker group membership. This group grants effectively root-level privileges.
+- Open a new Bash shell (or run `source ~/.bashrc`) to use `zed` from the terminal. Other shells need `~/.local/bin` on their `PATH`.
 - If needed, add `~/.devcontainers/bin` to your `PATH` and restore application preferences. Lutris and Smile are available separately via Flatpak.
 
 Never commit credentials, private keys or recovery information.
