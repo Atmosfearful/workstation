@@ -11,6 +11,7 @@ bash bootstrap.sh
 ## Installed software
 
 - 1Password desktop app
+- Tailscale
 - Brave browser
 - Zed editor
 - Docker Engine and CLI, containerd, Docker Buildx and Compose plugins
@@ -22,6 +23,6 @@ bash bootstrap.sh
 
 The script adds third-party repositories and runs upstream installers; review it before running. Preview with `DRY_RUN=1 bash bootstrap.sh`. Package dependencies may install additional software.
 
-After setup, sign in to 1Password and configure SSH, Git identity and application preferences separately. Never commit credentials, private keys or recovery information. If `devcontainer` is not found, add `~/.devcontainers/bin` to your `PATH`.
+After setup, sign in to 1Password, connect Tailscale with `sudo tailscale up`, and configure SSH, Git identity and application preferences separately. Never commit credentials, private keys or recovery information. If `devcontainer` is not found, add `~/.devcontainers/bin` to your `PATH`.
 
 Docker group membership grants effectively root-level privileges. Log out and back in, or run `newgrp docker`, to apply it. Lutris and Smile are available separately via Flatpak.

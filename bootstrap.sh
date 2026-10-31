@@ -11,6 +11,7 @@ main() {
   install_base_packages
 
   install_1password
+  install_tailscale
   install_brave
   install_zed
   install_docker

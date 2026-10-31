@@ -71,6 +71,17 @@ install_1password() {
   run sudo apt-get install -y 1password
 }
 
+# https://tailscale.com/kb/1031/install-linux
+install_tailscale() {
+  if command_exists tailscale || apt_installed tailscale; then
+    log "Tailscale already installed"
+    return
+  fi
+
+  log "Installing Tailscale"
+  run_shell 'curl -fsSL https://tailscale.com/install.sh | sh'
+}
+
 install_brave() {
   # https://brave.com/linux/ (one-command installation)
   if command_exists brave-browser || apt_installed brave-browser; then
