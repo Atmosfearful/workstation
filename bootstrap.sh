@@ -10,10 +10,11 @@ main() {
 
   install_base_packages
 
+  install_1password
   install_brave
   install_zed
   install_docker
-  install_devpod
+  install_devcontainer
   install_discord
   install_steam
   install_spotify

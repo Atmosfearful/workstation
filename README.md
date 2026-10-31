@@ -1,15 +1,15 @@
 # workstation
 
-My Ubuntu workstation bootstrap script.
-Assumes OS is already installed and updated, and already has `git`.
-
-For security; password and credential managers are omitted.
-
-## Run
+Bootstrap an Ubuntu-compatible workstation (APT, systemd and amd64 required). Install Git first; network access and sudo are required.
 
 ```bash
-git clone <url>
+git clone https://github.com/Atmosfearful/workstation.git
 cd workstation
-chmod +x bootstrap.sh
-./bootstrap.sh
+bash bootstrap.sh
 ```
+
+Installs 1Password, Brave, Zed, Docker, Dev Container CLI, Discord, Steam, Spotify and base utilities. It adds third-party repositories and runs upstream installers; review the scripts before running them. Preview with `DRY_RUN=1 bash bootstrap.sh`.
+
+After setup, sign in to 1Password and configure SSH, Git identity and application preferences separately. Never commit credentials, private keys or recovery information. If `devcontainer` is not found, add `~/.devcontainers/bin` to your `PATH`.
+
+Docker group membership grants effectively root-level privileges. Log out and back in, or run `newgrp docker`, to apply it. Lutris and Smile are available separately via Flatpak.
